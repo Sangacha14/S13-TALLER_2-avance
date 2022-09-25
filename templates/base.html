@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ titulo }}</title>
+    {% load static %}
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    {% block headcss %}
+
+    {% endblock %}
+</head>
+<body>
+<header>
+    {% block header %}
+        {% include 'header.html' %}
+    {% endblock %}
+</header>
+<main style="margin-top: 0.1rem" id="contenedor">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title">
+                    <ol class="breadcrumb" style="margin-bottom: 1.2rem">
+                        <li class="active text-success h5">
+                            {% block regresar %}
+
+                                <a class="btn btn-danger" href="{{ url_anterior }}">
+                                    Regresar
+                                </a>
+                            {% endblock %}
+
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% block main %}
+        <div class="container-fluid ">
+            <div class="mx-auto row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-5 d-flex justify-content-between align-items-center">
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Ventas Productos</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3 " style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Compras Productos</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Ficha Personal</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Ausentismos Personal</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Permiso de los empleados</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ausentismo:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Descuentos Personal</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Nomina Pagos</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Nomina</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Seleccion Personal</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Selecciona el personal para la Empresa</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Marcada Personal</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Atencion Medica</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Cuentas x Cobrar</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Cuentas x Pagar</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Caja Chica Empresa</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Activo Fijo Empresa</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Presupuesto Anual</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h5 class="card-header-title text-white ">Contabilidad Anual</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+                        <div class="card-header card-header-first rounded pb-3 text-center">
+                            <h4 class="card-header-title text-white ">Seguridad Sistema</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                            <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:menu' %}">
+                                <h6 class="text-light">Más Info...</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+</main>
+
+<footer>
+    {% block footer %}
+    {% endblock %}
+</footer>
+
+{% block frmodal %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block jscript %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,8 @@
+{% extends 'formulario.html' %}
+{% load static %}
+
+
+{% block controls %}
+    {% csrf_token %}
+    <p>Estas seguro de eliminar "{{ object }}"?</p>
+{% endblock %}

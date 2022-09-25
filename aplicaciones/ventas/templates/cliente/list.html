@@ -1,0 +1,64 @@
+{% extends 'consulta.html' %}
+{% load static %}
+
+{% block js %}
+{#    <script src="{% static 'cliente/js/list.js' %}"></script>#}
+{% endblock %}
+
+{% block search %}
+    <form action="{% url 'ventas:cliente' %}" method="GET">
+      <div class="input-group mb-3">
+        <input type="text" name="query" value="{{ query }}" class="form-control" placeholder="Buscar... por nombre" id="idInputSearch" aria-describedby="basic-addon2"/>
+        <button type="submit" class="btn btn-primary mr-1" id="idSearchSp">Buscar</button>
+      </div>
+    </form>
+{% endblock %}
+
+
+{% block columns %}
+    <tr class="text-center">
+        <th scope="col" style="width: 5%;">Nro</th>
+        <th scope="col" style="width: 20%;">Nombre</th>
+        <th scope="col" style="width: 10%;">Cedula</th>
+        <th scope="col" style="width: 30%;">Direccion</th>
+        <th scope="col" style="width: 10%;">Telefono</th>
+        <th scope="col" style="width: 15%;">Correo</th>
+        <th scope="col" style="width: 15%;">Foto</th>
+        <th scope="col" style="width: 10%;">Opciones</th>
+    </tr>
+{% endblock %}
+
+{% block rows %}
+{# <tr>#}
+{#    <td>1</td>#}
+{#    <td>Daniel Vera</td>#}
+{#    <td>0914192182</td>#}
+{#    <td>Chile y Guayaquil</td>#}
+{#    <td>092269847</td>#}
+{#    <td>dv@gmail.com</td>#}
+{#    <td> <img width="50" src="#" alt="Image"></td>#}
+{#   <td class="acciones">#}
+{#       <a href="#">✏️</a>#}
+{#       <a href="#">❌</a>#}
+{#   </td>#}
+{# </tr>#}
+    {% for object in clientes %}
+        <tr class="align-middle" >
+            <td>{{ object.id }}</td>
+            <td>{{ object.nombres }}</td>
+            <td>{{ object.ruc }}</td>
+            <td>{{ object.direccion }}</td>
+            <td>{{ object.telefonos }}</td>
+            <td>{{ object.email }}</td>
+            <td class="text-center">
+                <img width="70" src="{{ object.get_image }}" alt="Sin Foto">
+            </td>
+             <td class="acciones">
+                <a href="{% url 'ventas:actualizarcliente' object.id %}">✏️</a>
+                <a href="{% url 'ventas:deletecliente' object.id %}">❌</a>
+            </td>
+
+        </tr>
+    {% endfor %}
+
+{% endblock %}

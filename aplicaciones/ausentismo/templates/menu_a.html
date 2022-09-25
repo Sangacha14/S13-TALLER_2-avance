@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block regresar %}
+     <a class="btn btn btn-danger" href="{{url_anterior}}">
+            Regresar
+     </a>
+{% endblock %}
+{% block main %}
+     <div class="container-fluid ">
+       <div class="mx-auto row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 d-flex align-items-center">
+{#       <div class="mx-auto row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-5 d-flex justify-content-between align-items-center">#}
+           <div class="col ">
+            <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+              <div class="card-header card-header-first rounded pb-3 text-center">
+                 <h5 class="card-header-title text-white ">Lista de empleados</h5>
+              </div>
+              <div class="card-body text-center">
+                <p class="card-text font-wight">Se genera una lista de empleados de la empresa</p>
+                 <a class="text-decoration-none btn btn-gradient " href="{% url 'ausentismo:empleado' %}">
+                    <h6 class="text-light">Más Info...</h6>
+                 </a>
+              </div>
+            </div>
+          </div>
+
+           <div class="col ">
+            <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+              <div class="card-header card-header-first rounded pb-3 text-center">
+                 <h5 class="card-header-title text-white ">Permiso de los empleados</h5>
+              </div>
+              <div class="card-body text-center">
+                <p class="card-text font-wight">Se genera un nuevo permiso para los empleados</p>
+                 <a class="text-decoration-none btn btn-gradient " href="#">
+                    <h6 class="text-light">Más Info...</h6>
+                 </a>
+              </div>
+            </div>
+          </div>
+
+            <div class="col ">
+            <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+              <div class="card-header card-header-first rounded pb-3 text-center">
+                 <h5 class="card-header-title text-white ">Permiso por vacaciones</h5>
+              </div>
+              <div class="card-body text-center">
+                <p class="card-text font-wight">Se genera un permiso de vacaciones para los empleados</p>
+                 <a class="text-decoration-none btn btn-gradient " href="#">
+                    <h6 class="text-light">Más Info...</h6>
+                 </a>
+              </div>
+            </div>
+            </div>
+
+       </div>
+     </div>
+{% endblock %}
+

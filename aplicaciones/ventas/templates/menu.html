@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block regresar %}
+     <a class="btn btn btn-danger" href="{{url_anterior}}">
+            Regresar
+      </a>
+{% endblock %}
+{% block main %}
+     <div class="container-fluid ">
+       <div class="mx-auto row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-5 d-flex justify-content-between align-items-center">
+          <div class="col ">
+            <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+              <div class="card-header card-header-first rounded pb-3 text-center">
+                 <h5 class="card-header-title text-white ">Lineas Productos</h5>
+              </div>
+              <div class="card-body text-center">
+                <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                 <a class="text-decoration-none btn btn-gradient " href="#">
+                    <h6 class="text-light">Más Info...</h6>
+                  </a>
+              </div>
+            </div>
+          </div>
+
+            <div class="col ">
+            <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+              <div class="card-header card-header-first rounded pb-3 text-center">
+                 <h5 class="card-header-title text-white ">Grupos Productos</h5>
+              </div>
+              <div class="card-body text-center">
+                <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                 <a class="text-decoration-none btn btn-gradient " href="#">
+                    <h6 class="text-light">Más Info...</h6>
+                  </a>
+              </div>
+            </div>
+          </div>
+          <div class="col ">
+            <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+              <div class="card-header card-header-first rounded pb-3 text-center">
+                 <h5 class="card-header-title text-white ">Productos Existencias</h5>
+              </div>
+              <div class="card-body text-center">
+                <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                 <a class="text-decoration-none btn btn-gradient " href="#">
+                    <h6 class="text-light">Más Info...</h6>
+                  </a>
+              </div>
+            </div>
+          </div>
+           <div class="col ">
+            <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+              <div class="card-header card-header-first rounded pb-3 text-center">
+                 <h5 class="card-header-title text-white ">Clientes Registrados</h5>
+              </div>
+              <div class="card-body text-center">
+                <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                 <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:cliente' %}">
+                    <h6 class="text-light">Más Info...</h6>
+                  </a>
+              </div>
+            </div>
+          </div>
+            <div class="col ">
+            <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+              <div class="card-header card-header-first rounded pb-3 text-center">
+                 <h5 class="card-header-title text-white ">Ventas Productos</h5>
+              </div>
+              <div class="card-body text-center">
+                <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                 <a class="text-decoration-none btn btn-gradient " href="{% url 'ventas:consultaventa' %}">
+                    <h6 class="text-light">Más Info...</h6>
+                  </a>
+              </div>
+            </div>
+          </div>
+           <div class="col ">
+            <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+              <div class="card-header card-header-first rounded pb-3 text-center">
+                 <h5 class="card-header-title text-white ">Reportes Ventas</h5>
+              </div>
+              <div class="card-body text-center">
+                <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                 <a class="text-decoration-none btn btn-gradient " href="#">
+                    <h6 class="text-light">Más Info...</h6>
+                  </a>
+              </div>
+            </div>
+          </div>
+           <div class="col ">
+            <div class="card card-section border rounded-5 p-3" style="height:12rem;width: 12rem">
+              <div class="card-header card-header-first rounded pb-3 text-center">
+                 <h5 class="card-header-title text-white ">Indicadores Ventas</h5>
+              </div>
+              <div class="card-body text-center">
+                <p class="card-text font-wight">Ventas de productos por menor y mayor</p>
+                 <a class="text-decoration-none btn btn-gradient " href="#">
+                    <h6 class="text-light">Más Info...</h6>
+                  </a>
+              </div>
+            </div>
+          </div>
+
+          </div>
+
+
+       </div>
+      </div>
+{% endblock %}
+

@@ -1,0 +1,138 @@
+{% extends 'consulta.html' %}
+{% load static %}
+{% block main %}
+ <form action="post" >
+   {% csrf_token %}
+  <div class="card card-secondary mx-2">
+        <div class="card-header d-flex justify-content-center bg-secondary" >
+            <h3 class="card-title text-white">
+                {{ titulo }}
+            </h3>
+        </div>
+        <div class="card-body ">
+            <div class="row">
+
+                <div class="col-lg-8">
+                  <div class="card card-secondary">
+                    <div class="card-header d-flex justify-content-center bg-secondary" >
+                        <h3 class="card-title text-white">
+                            Detalle de la Venta
+                        </h3>
+                    </div>
+                    <div class="card-body table-responsive">
+                       <div class="form-group d-flex">
+                            <label class="h4 mx-2 ">Articulos</label>
+                            <select class="form-control flex-grow-1" id="cboArticulos">
+                                 {% for art in articulos %}
+                                     <option
+                                             value="{{ art.id }}"
+                                             data-ajson='{"id":"{{ art.id }}","precio":"{{ art.precio|stringformat:"f" }}","coniva":"{{ art.con_iva  }}" }'
+                                     >
+                                         {{ art.descripcion }}
+                                     </option>
+                                 {% endfor %}
+                            </select>
+                            <label class="h4 mx-2 ">Cantidad</label>
+                            <input type="number" class="form-control " id="idCantidad" value="1">
+                            <button type="button" class="btn btn-success ms-2" id="btnArticulos">Agregar</button>
+                        </div>
+                        <hr class="border border-2">
+                        <table class="table table-bordered" id="data">
+                            <thead>
+                              <tr>
+                                <th>Codigo</th>
+                                <th>Articulo</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                                <th>Iva</th>
+                                <th>Total</th>
+                                <th class="text-center text-danger">Eliminar</th>
+                              </tr>
+                            </thead>
+                            <tbody id="detalle">
+
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                       </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="card card-secondary">
+                    <div class="card-header d-flex justify-content-center bg-secondary" >
+                        <h3 class="card-title text-white">
+                            Factura de Venta
+                        </h3>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <input type="hidden" name="action" value="{{ action }}">
+
+                        <div class="form-group ">
+                            <label class="h6">Fecha</label>
+                            {{ form.fecha }}
+                        </div>
+                        <div class="form-group">
+                            <label class="h6">Cliente</label>
+
+                            {{ form.cliente }}
+                        </div>
+                        <div class="form-group">
+                            <label class="h6">Subtotal</label>
+                            {{ form.subtotal }}
+
+                        </div>
+                        <div class="form-group">
+                            <label class="h6">Iva</label>
+                            {{ form.iva }}
+                        </div>
+                        <div class="form-group">
+                            <label class="h6">Total</label>
+                            {{ form.total }}
+                        </div>
+                        <div class="form-group">
+                            <label class="h6">Forma Pago</label>
+                            {{ form.forma_pago }}
+                        </div>
+
+
+                       </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            {% block buttons_list %}
+
+               <button type="submit" class="btn  btn-primary" id="btnGrabar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    Grabar Venta
+               </button>
+                <a href="{{ listar_url }}" class="btn btn-success btn-flat">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
+                         viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd"
+                              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                    Cancelar
+                </a>
+            {% endblock %}
+        </div>
+    </div>
+</form>
+{% endblock %}
+{% block js %}
+   <script  type="text/javascript" >
+      var ivas = {{iva|stringformat:"f"}}
+      var save = '{{ action_save }}'
+      var detfac = {{ detalle|safe }}
+      console.log(detfac)
+   </script>
+   <script  type="text/javascript" src="{% static 'js/venta.js' %}"></script>
+{% endblock %}
+
